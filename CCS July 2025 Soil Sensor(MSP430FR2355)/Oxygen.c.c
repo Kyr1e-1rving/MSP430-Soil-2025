@@ -60,7 +60,7 @@ void read_oxygen(unsigned int data){
     int res = 12;
     temp = data & 0xFFF;                         //Converts digital value to binary
     for(i=0; i<res; i++){
-        o2_buf[0+i] = (temp>>i)&0x001;               //same as 0000 0000 0001 (LSB). Shifts data i bits the right & saves last bit(lsb) to o2[i]
+        o2_buf[0+i] = (temp>>i)&0x001;               //Shifts binary data i bits the right & saves last bit(lsb) to o2[i] in the o2 array
     }
 }
 
@@ -97,3 +97,4 @@ void __attribute__ ((interrupt(ADC_VECTOR))) ADC_ISR (void)
             break;
     }
 }
+
